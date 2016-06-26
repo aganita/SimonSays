@@ -94,111 +94,46 @@ class BoardView extends Component {
   _resetTheGame() {
     mainSequence = [];
     let startSound = random(1, 4);
-    currSequence = mainSequence.slice(0);
     mainSequence.push(startSound);
+    currSequence = mainSequence.slice(0);
     this._playNote(this['note' + startSound])
     console.log("start the game", startSound);
   }
 
 
   _playTheGame(id) {
-    console.log("this is the current id = ", id);
-    console.log("the main array ", mainSequence, "  the current ", currSequence);
-    console.log("curent note", this['note' + id]);
+    let gameOver = false;
     this._playNote(this['note' + id]);
-
+    
     if (currSequence.shift() !== id+"") {
-      console.log("game over", currSequence);
-      //currSequence = [];
-      AlertIOS.alert("Game Over! id = ")
+      gameOver = true;
+      AlertIOS.alert("Try Again!")
+
     }
 
-    if (currSequence.length === 0) {
+    if (!gameOver && currSequence.length === 0) {
       mainSequence.push(random(1, 4));
       currSequence = mainSequence.slice(0);
       console.log("the main Array ", mainSequence);
-      //this._playSounds(mainSequence);
-
+      this._playSounds(mainSequence);
     }
 
-
-    ////mainSequence.push(id+"");
-    //let res = compare(currSequence, mainSequence);
-    //// console.log("the result = ", res);
-    //
-    //if (res === "done") {
-    //  currSequence = [];
-    //  ///  console.log("next step");
-    //  //  AlertIOS.alert("next");
-    //
-    //  mainSequence.push(random(1, 4) + "");
-    //  //  console.log("the main Array ", mainSequence);
-    //  this._playSounds(mainSequence);
-    //
-    //} else if (res === "wrong") {
-    //  //console.log("game over");
-    //  AlertIOS.alert("Game Over!")
-    //  mainSequence = [];
-    //  currSequence = [];
-    //
-    //} else if (res === "right") {
-    //  currSequence.push(id + "");
-    //  //console.log("keep going")
-    //}
   }
 
   _playSounds(sequence) {
     var i = 0;
-   // var that = this;
-    var intervalId = setInterval(() => {
-      this._playNote(sequence[i]);
-      //that.lightUp(sequence[i]);
+    this.intervalId = setInterval(() => {
+      this._playNote(this['note' + sequence[i]]);
       i++;
       if (i >= sequence.length) {
-        clearInterval(intervalId);
-        //that.activateSimonBoard();
+        clearInterval(this.intervalId);
       }
-    }, 2000);
+    }, 1000);
 
-
-    //var i = 0;
-    //var self = this;
-    //console.log("seq length = ", sequence.length)
-    //var interval = setInterval(function () {
-    //  console.log("iteration =", i, "note =  ", sequence[i])
-    //  self._playNote(self['note' + sequence[i]]);
-    //  if (++i > sequence.length - 1) {
-    //    console.log("clear interval!")
-    //    clearInterval(interval);
-    //  }
-    //}, 2000);
   }
 
 
-
-
-
 }
-
-//function compare(currentArr, mainArr){
-//
-//  let arr1 = currentArr.map(elm => elm);
-//  let arr2 = mainArr.map(elm => elm);
-//  //console.log("Current", arr1, "  MAin", arr2);
-//  while (arr1.length && arr2.length){
-//    if (arr1.shift() === arr2[0]){
-//      arr2.shift();
-//    }else{
-//      return "wrong"
-//    }
-//  }
-//  if (arr2.length === 0) return "done";
-//
-//  return "right"
-//}
-
-
-
 
 //get a random number within the range  min <= rand <= max
 function random(min, max){
