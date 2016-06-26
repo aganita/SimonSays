@@ -27,7 +27,7 @@ class BoardView extends Component {
   constructor(props) {
     super(props);
 
-    // load all four sounds note1, note2, note3, note4
+    // load four sounds note1, note2, note3, note4
     for (let i = 1; i <= 4; i++) {
       let note = 'note' + i;
       this[note] = new Sound(i + '.mp3', Sound.MAIN_BUNDLE, (error) => {
@@ -51,11 +51,8 @@ class BoardView extends Component {
     </View>
   }
 
-  //componentDidMount() {
-  //  //this._resetTheGame();
-  //}
 
-  // create all four tiles
+  // create four tiles
   _renderTiles() {
     let result = [];
     let key = 1;
@@ -84,13 +81,14 @@ class BoardView extends Component {
   _playNote(note) {
     note.play((success) => {
       if (success) {
-        //console.log('successfully finished playing');
+        console.log('successfully finished playing');
       } else {
-        //console.log('playback failed due to audio decoding errors');
+        console.log('playback failed due to audio decoding errors');
       }
     });
   }
 
+  // reset the game
   _resetTheGame() {
     mainSequence = [];
     let startSound = random(1, 4);
@@ -100,27 +98,26 @@ class BoardView extends Component {
     console.log("start the game", startSound);
   }
 
-
+  //
   _playTheGame(id) {
     let gameOver = false;
     this._playNote(this['note' + id]);
-    
+
     if (currSequence.shift() !== id+"") {
       gameOver = true;
       AlertIOS.alert("Try Again!")
-
     }
 
     if (!gameOver && currSequence.length === 0) {
       mainSequence.push(random(1, 4));
       currSequence = mainSequence.slice(0);
       console.log("the main Array ", mainSequence);
-      this._playSounds(mainSequence);
+      this._playNotes(mainSequence);
     }
-
   }
 
-  _playSounds(sequence) {
+  // play array of notes
+  _playNotes(sequence) {
     var i = 0;
     this.intervalId = setInterval(() => {
       this._playNote(this['note' + sequence[i]]);
