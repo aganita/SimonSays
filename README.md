@@ -1,2 +1,2 @@
 # SimonSays
-mobile app built with react native
+mobile game built with react native
