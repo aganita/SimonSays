@@ -26,7 +26,7 @@ var currSequence = [];
 class BoardView extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {lit: 0};
     // load four sounds note1, note2, note3, note4
     for (let i = 1; i <= 4; i++) {
       let note = 'note' + i;
@@ -42,6 +42,7 @@ class BoardView extends Component {
 
   }
 
+
   render() {
     return <View style={styles.container}>
       <TouchableOpacity onPress={this._resetTheGame.bind(this)}>
@@ -55,26 +56,27 @@ class BoardView extends Component {
   // create four tiles
   _renderTiles() {
     let result = [];
-    let key = 1;
-    let bgColors = ["", "", "#3275DD", "#D93333", "#64D23B", "#FED731"];
+    let i = 1;
+    let bgColors = ["", "", "#3275DD", "#D93333", "#64D23B", "#FED731", "black"];
     for (var row = 0; row < SIZE; row++) {
       for (var col = 0; col < SIZE; col++) {
         var position = {
           left: col * CELL_SIZE + CELL_PADDING,
           top: row * CELL_SIZE + CELL_PADDING
         };
-        result.push(this._renderTile(key++, position, {backgroundColor: bgColors[key]}));
+        result.push(this._renderTile(i++, position, {backgroundColor: bgColors[i]}, {backgroundColor: '#FF0B96'}));
       }
     }
     return result;
   }
 
   // create one tile
-  _renderTile(id, position, bgColor) {
-    return <TouchableOpacity onPress={() => this._playTheGame(id)}>
-      <View style={[styles.tile, position, bgColor]}>
+  _renderTile(id, position, bgColor, litBgColor) {
+
+    return (<TouchableOpacity onPress={() => this._playTheGame(id)}>
+      <View style={[styles.tile, position, this.state.lit == id ? litBgColor : bgColor]}><Text style={styles.letter}>{id}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableOpacity>)
   }
 
   // play one note
@@ -91,19 +93,19 @@ class BoardView extends Component {
   // reset the game
   _resetTheGame() {
     mainSequence = [];
+    this.setState({lit: 0});
     let startSound = random(1, 4);
     mainSequence.push(startSound);
     currSequence = mainSequence.slice(0);
-    this._playNote(this['note' + startSound])
-    console.log("start the game", startSound);
+    this._playNotes(mainSequence);
   }
 
-  //
+
   _playTheGame(id) {
     let gameOver = false;
     this._playNote(this['note' + id]);
 
-    if (currSequence.shift() !== id+"") {
+    if (currSequence.shift() !== id) {
       gameOver = true;
       AlertIOS.alert("Try Again!")
     }
@@ -121,12 +123,13 @@ class BoardView extends Component {
     var i = 0;
     this.intervalId = setInterval(() => {
       this._playNote(this['note' + sequence[i]]);
+      this.setState({lit: sequence[i]});
       i++;
       if (i >= sequence.length) {
         clearInterval(this.intervalId);
+        setTimeout(() => this.setState({lit: 0}), 1000);
       }
     }, 1000);
-
   }
 
 
@@ -134,7 +137,7 @@ class BoardView extends Component {
 
 //get a random number within the range  min <= rand <= max
 function random(min, max){
-  return  (min + Math.floor(Math.random() * (max + 1 - min)))+"";
+  return  (min + Math.floor(Math.random() * (max + 1 - min)));
 }
 
 var styles = StyleSheet.create({
