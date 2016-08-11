@@ -12,8 +12,9 @@
 See [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) to install requirement tools.
 
 ## Stack
-- [React Native](https://facebook.github.io/react-native/) `0.26.0` for building native apps using react
-- 
+- [React Native](https://facebook.github.io/react-native/) `0.28.0` for building native apps using react
+- [React Native Sound](https://github.com/zmxv/react-native-sound) sound library for react native
+
 ## Make the awesome
 Just clone the repo
 and start :
