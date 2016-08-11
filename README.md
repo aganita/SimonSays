@@ -19,50 +19,45 @@ See [Getting Started](https://facebook.github.io/react-native/docs/getting-start
 https://www.youtube.com/watch?v=BQAesv1gvRM&feature=youtube&app=desktop
 
 ## For Developers
-Just clone the repo
-and start :
+### Get the source code
+Clone the repo and install node components in package.json
 ```shell
 $ git clone https://github.com/aganita/SimonSays.git SimonSays
 $ cd SimonSays
-$ npm i                         # Install Node.js components listed in ./package.json
+$ npm install
 ```
-follow instructions for [react native sound](https://github.com/zmxv/react-native-sound/blob/master/README.md) to make the sound working 
+Follow instructions for [react native sound](https://github.com/zmxv/react-native-sound/blob/master/README.md) to make the sound working 
 
 
-### How to use ?
+### Start the emulator and developent enviroment
+##### iOS
 ```shell
 $ react-native run-ios
 ```
-This will start a lightweight development server.
-
-###### iOS:
-Open `App.xcodeproj` in Xcode, build and run the project.
-
-###### Android:
+##### Andorid
 ```shell
-$ npm run android-setup-port    # adb reverse tcp:8081 tcp:8080
+$ react-native run-android
 ```
-Start your emulator or connect your device.
 
-## Debugging
+### Debugging
 [Access the in-app developer menu](https://facebook.github.io/react-native/docs/debugging.html) and select ``Debug in Chrome``.
-
-## Create a release build
-* Navigate to Product > Scheme > Edit Scheme... in Xcode and change Build Configuration to *Release*.
-* Run in terminal :
-
-###### iOS:
-```shell
-$ npm run build-ios
-```
-###### Android:
-```shell
-$ npm run build-android
-```
-To get to the developer menu on the ios emulator, just press Control-D inside the emulator screen.  Then, turn on hot reload.
+To get to the developer menu on the ios emulator, press Control-D inside the emulator screen.  Then, turn on hot reload.
 
 To get to the developer menu on the android emulator, just press Control-M inside the emulator screen.  Then, turn on hot reload.
 
-## Issues
+### Create a release build
+* Navigate to Product > Scheme > Edit Scheme... in Xcode and change Build Configuration to *Release*.
+* Run in terminal :
+
+##### iOS:
+```shell
+$ npm run build-ios
+```
+##### Android:
+```shell
+$ npm run build-android
+```
+
+### Issues
 If you run into any issues please see the [Getting Started](http://facebook.github.io/react-native/docs/getting-started.html) guide for React Native before submitting an issue.
 
