@@ -23,10 +23,12 @@ $ git clone https://github.com/aganita/SimonSays.git SimonSays
 $ cd SimonSays
 $ npm i                         # Install Node.js components listed in ./package.json
 ```
+follow instructions for [react native sound](https://github.com/zmxv/react-native-sound/blob/master/README.md) to make the sound working 
+
 
 ### How to use ?
 ```shell
-$ npm start                     # or: node_modules/react-native/packager/packager.sh
+$ react-native run-ios
 ```
 This will start a lightweight development server.
 
@@ -54,7 +56,7 @@ $ npm run build-ios
 ```shell
 $ npm run build-android
 ```
-To get to the developer menu on the ios emulator, just press Control-M inside the emulator screen.  Then, turn on hot reload.
+To get to the developer menu on the ios emulator, just press Control-D inside the emulator screen.  Then, turn on hot reload.
 
 To get to the developer menu on the android emulator, just press Control-M inside the emulator screen.  Then, turn on hot reload.
 
