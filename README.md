@@ -15,7 +15,10 @@ See [Getting Started](https://facebook.github.io/react-native/docs/getting-start
 - [React Native](https://facebook.github.io/react-native/) `0.28.0` for building native apps using react
 - [React Native Sound](https://github.com/zmxv/react-native-sound) `0.8.3` sound library for react native
 
-## Make the awesome
+## Demo of the Project
+https://www.youtube.com/watch?v=BQAesv1gvRM&feature=youtube&app=desktop
+
+## For Developers
 Just clone the repo
 and start :
 ```shell
