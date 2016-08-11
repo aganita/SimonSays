@@ -19,7 +19,7 @@ See [Getting Started](https://facebook.github.io/react-native/docs/getting-start
 Just clone the repo
 and start :
 ```shell
-$ git clone https://github.com/aganita/simon-says-w-react-native.git SimonSays
+$ git clone https://github.com/aganita/SimonSays.git SimonSays
 $ cd SimonSays
 $ npm i                         # Install Node.js components listed in ./package.json
 ```
