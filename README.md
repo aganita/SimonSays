@@ -13,7 +13,7 @@ See [Getting Started](https://facebook.github.io/react-native/docs/getting-start
 
 ## Stack
 - [React Native](https://facebook.github.io/react-native/) `0.28.0` for building native apps using react
-- [React Native Sound](https://github.com/zmxv/react-native-sound) sound library for react native
+- [React Native Sound](https://github.com/zmxv/react-native-sound) `0.8.3` sound library for react native
 
 ## Make the awesome
 Just clone the repo
@@ -41,15 +41,6 @@ Start your emulator or connect your device.
 
 ## Debugging
 [Access the in-app developer menu](https://facebook.github.io/react-native/docs/debugging.html) and select ``Debug in Chrome``.
-
-#### Run Reactotron
-```shell
-$ npm run reactotron
-```
-
-![](https://github.com/skellock/reactotron/blob/master/images/Reactotron.gif)
-
-See the [Reacotron docs](https://github.com/skellock/reactotron) for more features.
 
 ## Create a release build
 * Navigate to Product > Scheme > Edit Scheme... in Xcode and change Build Configuration to *Release*.
