@@ -1,6 +1,16 @@
 # Simon Says built with React Native
 
-## Requirements
+## Demo of the Project
+https://www.youtube.com/watch?v=BQAesv1gvRM&feature=youtube&app=desktop
+
+## Stack
+- [Node](https://nodejs.org) `4.x` or newer
+- [React Native](https://facebook.github.io/react-native/) `0.28.0` for building native apps using react
+- [React Native Sound](https://github.com/zmxv/react-native-sound) `0.8.3` sound library for react native
+
+## For Developers
+
+### Requirements
 - [Node](https://nodejs.org) `4.x` or newer
 - [React Native](http://facebook.github.io/react-native/docs/getting-started.html) for development
 - [Xcode](https://developer.apple.com/xcode/) for iOS development
@@ -11,14 +21,6 @@
 
 See [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) to install requirement tools.
 
-## Stack
-- [React Native](https://facebook.github.io/react-native/) `0.28.0` for building native apps using react
-- [React Native Sound](https://github.com/zmxv/react-native-sound) `0.8.3` sound library for react native
-
-## Demo of the Project
-https://www.youtube.com/watch?v=BQAesv1gvRM&feature=youtube&app=desktop
-
-## For Developers
 ### Get the source code
 Clone the repo and install node components in package.json
 ```shell
